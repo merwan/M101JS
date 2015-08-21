@@ -88,8 +88,15 @@ function PostsDAO(db) {
             comment['email'] = email
         }
 
-        // hw3.3 TODO
-        callback(Error("addComment NYI"), null);
+        posts.update({'permalink': permalink}, {'$push': {'comments': comment}}, function(err, updated) {
+          "use strict";
+
+          if (!err) {
+            return callback(null, updated);
+          }
+
+          return callback(err, null);
+        });
     }
 }
 
