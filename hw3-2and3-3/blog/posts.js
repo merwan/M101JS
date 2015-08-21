@@ -28,9 +28,16 @@ function PostsDAO(db) {
                 "comments": [],
                 "date": new Date()}
 
-        // now insert the post
-        // hw3.2 TODO
-        callback(Error("insertEntry NYI"), null);
+        posts.insert(post, function(err, result) {
+          "use strict";
+
+          if (!err) {
+            console.log(result);
+              return callback(null, result[0].permalink);
+          }
+
+          return callback(err, null);
+        });
     }
 
     this.getPosts = function(num, callback) {
