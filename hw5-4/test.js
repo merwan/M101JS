@@ -8,5 +8,5 @@ db.zips.aggregate([
       }
     },
     {$match: {'first_char': {$in: [/[0-9]/]}}},
-    {$group: {_id: '$first_char', sum: {$sum: '$pop'}}}
+    {$group: {_id: null, sum: {$sum: '$pop'}}},
 ])
