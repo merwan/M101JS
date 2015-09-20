@@ -19,10 +19,10 @@ var findOrphanImages = function(db, images) {
 
   for (var i = 0; i < images.length; i++) {
     var image = images[i];
-    collection.count({'images': image._id}, function(err, count) {
-      console.log(count);
-      if (count == 0) {
-        console.log('Orphan image: ' + image._id);
+    console.log(count);
+    collection.findOne({'images': image._id}, function(err, doc) {
+      if (doc) {
+        console.log('Orphan image: ' + doc._id);
         //db.collection.remove({'_id': image._id}, function(err, result) {});
       }
     });
