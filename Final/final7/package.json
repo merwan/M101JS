@@ -1,0 +1,12 @@
+{
+  "name": "question7",
+  "version": "0.0.0",
+  "description": "Question 7",
+  "main": "app.js",
+  "dependencies": {
+    "mongodb": "~1.3.11"
+  },
+  "author": "You",
+  "license": "BSD",
+  "private": true
+}
